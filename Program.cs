@@ -1,22 +1,26 @@
-﻿using System;
-using corCineEnCasa.Entidades;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-namespace hola_mundo
+namespace cineEnCasaMVC
 {
-    class Program
+    public class Program
     {
-        
-
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            var peli = new Peliculas("Jurassic World: Fallen Kingdom (2018)");
-            //peli.titulo = "Jurassic World: Fallen Kingdom (2018)";
-            peli.url = "https://ytstvmovies.xyz/jurassic-world-fallen-kingdom-2018";
-            peli.imagen = "https://image.tmdb.org/t/p/w185/c9XxwwhPHdaImA2f1WEfEsbhaFB.jpg";
-            peli.puntaje = 6.2;
-            peli.trailer = "https://youtu.be/vn9mMeWcgoM";
-            peli.tipo = TiposDePeliculas.CienciaFiccion;
-            Console.WriteLine("La ultima de jurassic: " + peli.titulo);
+            CreateHostBuilder(args).Build().Run();
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
     }
 }

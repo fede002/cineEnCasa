@@ -1,7 +1,7 @@
-namespace corCineEnCasa.Entidades
+namespace cineEnCasaMVC.Entidades
 {
-    enum TiposDePeliculas
-    {   
+    public enum TiposDePelicula
+    {
         Terror,
         CienciaFiccion,
         Accion,
